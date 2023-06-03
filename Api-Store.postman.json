@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "665f9b3d-e404-40ec-9c9c-ead56014b65a",
+		"name": "Api-Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19168398",
+		"_collection_link": "https://interstellar-firefly-440420.postman.co/workspace/Team-Workspace~cd496f2f-09e8-4fc3-8219-b7f8950659c3/collection/19168398-665f9b3d-e404-40ec-9c9c-ead56014b65a?action=share&creator=19168398&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logaut",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tienda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver tienda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todas las tiendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar tienda",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear Articulo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Articulo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar articulo",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":\"uuu\",\r\n    \"store_id\":7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/v1/article/fideos gabazza",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"article",
+						"fideos gabazza"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar articulo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/article/fideos gabazza",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"article",
+						"fideos gabazza"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver todos los Articulos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/prueba3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						"prueba3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
