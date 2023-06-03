@@ -15,3 +15,4 @@ const articleModel={
         }
     },
 }
+module.exports = articleModel;
