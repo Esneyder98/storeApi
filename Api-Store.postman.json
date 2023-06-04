@@ -1,19 +1,31 @@
 {
 	"info": {
-		"_postman_id": "665f9b3d-e404-40ec-9c9c-ead56014b65a",
+		"_postman_id": "c8cf9e22-2782-4e26-b3de-526945fbd3ef",
 		"name": "Api-Store",
+		"description": "Api de gestion de Tiendas y articulos, desarrollada con nodejs, ExpressJs,Mysql",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19168398",
-		"_collection_link": "https://interstellar-firefly-440420.postman.co/workspace/Team-Workspace~cd496f2f-09e8-4fc3-8219-b7f8950659c3/collection/19168398-665f9b3d-e404-40ec-9c9c-ead56014b65a?action=share&creator=19168398&source=collection_link"
+		"_collection_link": "https://interstellar-firefly-440420.postman.co/workspace/Team-Workspace~cd496f2f-09e8-4fc3-8219-b7f8950659c3/collection/19168398-c8cf9e22-2782-4e26-b3de-526945fbd3ef?action=share&creator=19168398&source=collection_link"
 	},
 	"item": [
 		{
 			"name": "Crear Usuario",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"usuario\",\r\n    \"password\":\"1234567\"\r\n}"
+				},
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "http://localhost:3001/api/v1/register",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
@@ -21,8 +33,7 @@
 					"path": [
 						"api",
 						"v1",
-						"store",
-						"prueba3"
+						"register"
 					]
 				}
 			},
@@ -32,9 +43,24 @@
 			"name": "Login",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"usuarioPrueba\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/auth",
 					"host": [
 						"localhost"
 					],
@@ -42,20 +68,19 @@
 					"path": [
 						"api",
 						"v1",
-						"store",
-						"prueba3"
+						"auth"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Logaut",
+			"name": "Logout",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/logout",
 					"host": [
 						"localhost"
 					],
@@ -63,8 +88,7 @@
 					"path": [
 						"api",
 						"v1",
-						"store",
-						"prueba3"
+						"logout"
 					]
 				}
 			},
@@ -76,7 +100,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/store/Don_Prospero",
 					"host": [
 						"localhost"
 					],
@@ -85,7 +109,7 @@
 						"api",
 						"v1",
 						"store",
-						"prueba3"
+						"Don_Prospero"
 					]
 				}
 			},
@@ -97,7 +121,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/store/Don_Prospero",
 					"host": [
 						"localhost"
 					],
@@ -106,28 +130,7 @@
 						"api",
 						"v1",
 						"store",
-						"prueba3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "todas las tiendas",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"v1",
-						"store",
-						"prueba3"
+						"Don_Prospero"
 					]
 				}
 			},
@@ -139,7 +142,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/store/prueba2",
 					"host": [
 						"localhost"
 					],
@@ -148,7 +151,28 @@
 						"api",
 						"v1",
 						"store",
-						"prueba3"
+						"prueba2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todas las tiendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/v1/store/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"store",
+						""
 					]
 				}
 			},
@@ -158,9 +182,24 @@
 			"name": "crear Articulo",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":2000,\r\n    \"store_id\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/article/nescafe",
 					"host": [
 						"localhost"
 					],
@@ -168,8 +207,8 @@
 					"path": [
 						"api",
 						"v1",
-						"store",
-						"prueba3"
+						"article",
+						"nescafe"
 					]
 				}
 			},
@@ -179,39 +218,15 @@
 			"name": "Ver Articulo",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"api",
-						"v1",
-						"store",
-						"prueba3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Actualizar articulo",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"price\":\"uuu\",\r\n    \"store_id\":7\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4NTg0NTQ5OH0.wbgzpRDgXpidkmr8tKhNdTj84F4LSc4pysgpC5TSaGY",
+						"type": "text"
 					}
-				},
+				],
 				"url": {
-					"raw": "localhost:3001/api/v1/article/fideos gabazza",
+					"raw": "localhost:3001/api/v1/article/nescafe",
 					"host": [
 						"localhost"
 					],
@@ -220,7 +235,43 @@
 						"api",
 						"v1",
 						"article",
-						"fideos gabazza"
+						"nescafe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar articulo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":3100,\r\n    \"store_id\":10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/v1/article/nescafe",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"article",
+						"nescafe"
 					]
 				}
 			},
@@ -232,7 +283,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/v1/article/fideos gabazza",
+					"raw": "localhost:3001/api/v1/article/nescafe",
 					"host": [
 						"localhost"
 					],
@@ -241,7 +292,7 @@
 						"api",
 						"v1",
 						"article",
-						"fideos gabazza"
+						"nescafe"
 					]
 				}
 			},
@@ -253,7 +304,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/v1/store/prueba3",
+					"raw": "localhost:3001/api/v1/article",
 					"host": [
 						"localhost"
 					],
@@ -261,8 +312,7 @@
 					"path": [
 						"api",
 						"v1",
-						"store",
-						"prueba3"
+						"article"
 					]
 				}
 			},

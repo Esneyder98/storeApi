@@ -8,7 +8,7 @@ const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 router.post('/:name',cors(),userLoggedMiddleware,validateCreateArticle,articleController.create);
 router.get('/:name',cors(),userLoggedMiddleware,checkApiKey,articleController.detail);
-router.patch('/:name',cors(),userLoggedMiddleware,validateCreateArticle,articleController.update);
+router.put('/:name',cors(),userLoggedMiddleware,validateCreateArticle,articleController.update);
 router.delete('/:name',cors(),userLoggedMiddleware,articleController.delete);
 router.get('/',cors(),articleController.listArticles)
 module.exports = router;

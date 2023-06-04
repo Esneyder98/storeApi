@@ -65,68 +65,78 @@ const articleApiController = {
       });
     }
   },
-  update: async (req,res) =>{
+  update: async (req, res) => {
     const resultValidation = validationResult(req);
-    let {name} = req?.params;
-    let {price,store_id} = req.body;
+    let { name } = req?.params;
+    let { price, store_id } = req.body;
     if (resultValidation.errors.length > 0) {
       res.status(404).json({
         error: resultValidation.mapped(),
       });
     } else {
-      let article = await articleModel.findByOne(name,store_id);
-      if (article !== null && article !== "undefined" && article !== "") {
-        let update = await articleModel.update(name,{price,store_id});
-        if (update[0] == 1) {
-          let newArticle = await articleModel.findByOne(name,store_id);
-          res.status(200).json({
-            message: "Update",
-            data:newArticle
-          });
-        }else{
+      let store = await storeModel.findById(store_id);
+      if (store !== null && store !== "undefined" && store !== "") {
+        let article = await articleModel.findByOne(name, store_id);
+        if (article !== null && article !== "undefined" && article !== "") {
+          let update = await articleModel.update(name, { price, store_id });
+          if (update[0] == 1) {
+            let newArticle = await articleModel.findByOne(name, store_id);
+            res.status(200).json({
+              message: "Update",
+              data: newArticle,
+            });
+          } else {
+            res.status(404).json({
+              error: "El articulo ya tiene los atributos ingresados",
+            });
+          }
+        } else {
           res.status(404).json({
-            error: "El articulo ya tiene los atributos ingresados",
+            error: `No existe articulo con el nombre: ${name} en esta tienda`,
           });
         }
-      }else{
+      } else {
         res.status(404).json({
-          error: `No existe articulo con el nombre: ${name} en esta tienda`,
+          error: "Tienda ingresada no existe",
         });
       }
-
-  }
+    }
   },
-  delete: async (req, res) =>{
+  delete: async (req, res) => {
     try {
-      let {name} = req?.params;
+      let { name } = req?.params;
       let deletee = await articleModel.delete(name);
-      if(deletee == 1){
+      if (deletee == 1) {
         res.status(200).json({
-          "messaje": "Article deleted"
+          messaje: "Article deleted",
         });
-      }else{
+      } else {
         res.status(404).json({
-          "error":"No existe articulo con ese nombre"
-        })
+          error: "No existe articulo con ese nombre",
+        });
       }
     } catch (error) {
       res.status(500).json({
-        "error":`${error.messaje}`
-      })
+        error: `${error.messaje}`,
+      });
     }
   },
-  listArticles: async (req,res) => {
+  listArticles: async (req, res) => {
     try {
       let listArticles = await articleModel.findAll();
-      if (listArticles !== null && listArticles !== "undefined" && listArticles !== "") {
+      if (
+        listArticles !== null &&
+        listArticles !== "undefined" &&
+        listArticles !== ""
+      ) {
         res.status(200).json({ listArticles });
       }
     } catch (error) {
       res.status(404).json({
         error: "no existen registros de articulos",
       });
-    }  
-  }
+    }
+  },
 };
 
 module.exports = articleApiController;
