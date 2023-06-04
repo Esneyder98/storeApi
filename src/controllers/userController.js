@@ -28,7 +28,7 @@ const userController = {
           password = bcrypt.hashSync(password, 10);
           const create = await userModel.create({ username, password });
           res.status(201).json({
-            create,
+            messaje: "User created successfully",
           });
         }
       }
@@ -40,40 +40,47 @@ const userController = {
   },
   login: async (req, res) => {
     try {
-      let userToLogin = await userModel.findByUser(req.body.username);
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        res.status(400).json({
+          errors: resultValidation.mapped(),
+        });
+      } else {
+        let userToLogin = await userModel.findByUser(req.body.username);
 
-      if (userToLogin) {
-        let isOkThePassword = bcrypt.compareSync(
-          req.body.password,
-          userToLogin.password
-        );
-        if (isOkThePassword) {
-          //elimino la clave por seguridad
-          delete userToLogin.password;
-          //conservar la sesion del usuario
-          req.session.userLogged = userToLogin;
-          //-----------------------
+        if (userToLogin) {
+          let isOkThePassword = bcrypt.compareSync(
+            req.body.password,
+            userToLogin.password
+          );
+          if (isOkThePassword) {
+            //elimino la clave por seguridad
+            delete userToLogin.password;
+            //conservar la sesion del usuario
+            req.session.userLogged = userToLogin;
+            //-----------------------
 
-                const userJWT= req.session.userLogged
-                const payload = {
-                  sub: userJWT.id,
-                  role: 'admin'
-                }
-                const token = await jwt.sign(payload, config.development.jwtSecret);
-                req.session.token = token;
+            const userJWT = req.session.userLogged;
+            const payload = {
+              sub: userJWT.id,
+              role: "admin",
+            };
+            const token = await jwt.sign(payload, config.development.jwtSecret);
+            req.session.token = token;
             //.-------------------
-          res.status(200).json({
-            acces_tokend: token
-          });
+            res.status(200).json({
+              acces_tokend: token,
+            });
+          } else {
+            return res.status(404).json({
+              message: "Credenciales invalidas",
+            });
+          }
         } else {
           return res.status(404).json({
-            message: "Credenciales invalidas",
+            message: "404 user Not Found",
           });
         }
-      } else {
-        return res.status(404).json({
-          message: "404 user Not Found",
-        });
       }
     } catch (error) {
       return error.message;
