@@ -77,16 +77,15 @@ const storeApiController = {
             });
           } else {
             let storeDelete = await storeModel.delete(nameStore);
-            if(storeDelete > 0){
+            if (storeDelete > 0) {
               res.status(200).json({
-                message: storeDelete+" tienda eliminada corectamente",
+                message: storeDelete + " tienda eliminada corectamente",
               });
-            }else{
+            } else {
               res.status(404).json({
                 error: "tienda no eliminada",
               });
             }
-
           }
         } else {
           res.status(404).json({
